@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity
 			public void onClick(View v)
 			{		
 				getScreen(content);
-				Toast.makeText(MainActivity.this, "Taking a screenshot... checkout /sdcard/test.png", Toast.LENGTH_LONG).show();
+				Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_success), Toast.LENGTH_LONG).show();
 			}
 		});
     }
@@ -51,6 +52,7 @@ public class MainActivity extends Activity
     private void getScreen(View content)
     {
         Bitmap bitmap = content.getDrawingCache();
+
         File file = new File("/sdcard/test.png");
         try 
         {
